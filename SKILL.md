@@ -98,7 +98,10 @@ Erstellt professionelle Unterlagen im Corporate Design der **Beruflichen Schule 
 </svg>
 ```
 
-Logo PNG: `Logo_BSWI_Quer_RGB.png` (562x180px, Seitenverhältnis 3.12:1)
+Logo PNG: `Logo_BSWI_Quer_RGB.png` (187x60px, Seitenverhältnis 3.12:1)
+Für Druck und Großformat: `Logo_BSWI_Quer_RGB_2278.png` (2278x730px, gleiches
+Seitenverhältnis, RGB+Alpha). Das kleine PNG trägt bis A4; auf A0 kommt es auf
+29 ppi heraus und ist sichtbar verpixelt (21.09.2026 gemessen).
 
 ---
 

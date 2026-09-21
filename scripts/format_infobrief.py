@@ -166,7 +166,14 @@ class InfobriefFormatter:
             css_content = css_path.read_text(encoding='utf-8')
 
         # Logo als Base64 für PDF-Kompatibilität
-        logo_path = Path(__file__).parent.parent / 'templates' / 'Logo_BSWI_Quer_RGB.png'
+        # Hochaufloesende Fassung bevorzugen (2278x730). Das kleine PNG (187x60) traegt
+        # nur bis A4; auf A0 sind es 29 ppi. Rueckfall ist absichtlich laut.
+        logo_dir = Path(__file__).parent.parent / 'templates'
+        logo_path = logo_dir / 'Logo_BSWI_Quer_RGB_2278.png'
+        if not logo_path.exists():
+            logo_path = logo_dir / 'Logo_BSWI_Quer_RGB.png'
+            print('WARNUNG: Logo_BSWI_Quer_RGB_2278.png fehlt, nutze 187x60 - '
+                  'auf Grossformat verpixelt.', file=sys.stderr)
         logo_data_uri = None
         if logo_path.exists():
             with open(logo_path, 'rb') as logo_file:
