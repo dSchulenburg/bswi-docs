@@ -139,7 +139,7 @@ Person, die präsentiert.
 
 **Dirk Schulenburg**  
 BS:WI – Berufliche Schule für Wirtschaft und Internationales Hamburg  
-dirk.schulenburg@bs05.hamburg.de
+Fragen und Verbesserungen als Issue oder Pull Request im Repository.
 
 ---
 
