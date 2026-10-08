@@ -132,7 +132,10 @@ python scripts/office/pack.py unpacked/ output.pptx --original BSWI_Master.pptx
 
 ---
 
-## Kontakt
+## Fragen zu diesem Leitfaden
+
+Gehört nicht auf die Folien. Auf die Titel- oder Schlussfolie kommt der Name der
+Person, die präsentiert.
 
 **Dirk Schulenburg**  
 BS:WI – Berufliche Schule für Wirtschaft und Internationales Hamburg  

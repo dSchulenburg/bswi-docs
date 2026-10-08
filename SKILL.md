@@ -110,14 +110,14 @@ Seitenverhältnis, RGB+Alpha). Das kleine PNG trägt bis A4; auf A0 kommt es auf
 ```
 ┌──────────────────────────────────────────────────────────┐
 │ (2px Border Blau 1)                                      │
-│ Dirk Schulenburg · BS:WI    Kompetent Zukunft Gestalten  │
+│ {{AUTOR}} · BS:WI           Kompetent Zukunft Gestalten  │
 │                             (kursiv, Blau 3)   Seite X/Y │
 └──────────────────────────────────────────────────────────┘
 ```
 
 - Weißer Hintergrund
 - Obere Trennlinie: 2px Blau 1
-- Links: "Dirk Schulenburg · BS:WI" (grau)
+- Links: "{{AUTOR}} · BS:WI" (grau), siehe **Autor** unten
 - Mitte/Rechts: Claim kursiv in Blau 3
 - Bei mehrseitigen Dokumenten: "Seite X von Y"
 
@@ -278,16 +278,31 @@ python3 scripts/office/soffice.py --headless --convert-to pdf dokument.docx --ou
 
 ---
 
-## Kontaktdaten
+## Autor
+
+Alle Vorlagen tragen den Platzhalter `{{AUTOR}}` (Footer, E-Mail-Kopf und
+-Signatur), die E-Mail zusätzlich `{{AUTOR_EMAIL}}`. Gemeint ist die Person, für
+die das Dokument entsteht, also in der Regel die, die gerade mit dir arbeitet.
+
+- Name aus dem Gespräch oder dem Kontext übernehmen. Ist er nicht bekannt:
+  **einmal nachfragen**, nicht raten.
+- **Nie einen Namen aus diesem Skill oder seinen Beispielen einsetzen.** Der
+  Skill wird von vielen Kolleg:innen benutzt.
+- Will jemand keinen Namen im Dokument: Footer nur `BS:WI`, in DOCX
+  `createFooter()` ohne Argument. Mit Namen: `createFooter('Vorname Nachname')`.
+
+## Kontaktdaten der Schule
 
 ```
-Dirk Schulenburg
+{{AUTOR}}
 BS:WI – Berufliche Schule für Wirtschaft und Internationales
 Hinrichsenstraße 35 · 20535 Hamburg
-dirk.schulenburg@bs05.hamburg.de
+{{AUTOR_EMAIL}}
 Tel: +49 40 428 976 - 0
 www.bswi.hamburg
 ```
+
+Dienstliche Adressen haben die Form `vorname.nachname@bs05.hamburg.de`.
 
 ---
 
