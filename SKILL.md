@@ -26,7 +26,7 @@ Erstellt professionelle Unterlagen im Corporate Design der **Beruflichen Schule 
 
 - **HTML**: Direkt im Browser, perfekt für digitale Nutzung
 - **DOCX**: Word-Dokument mit `docx-generator.js`
-- **PDF**: Aus DOCX via LibreOffice konvertiert
+- **PDF**: Aus HTML per Edge/Chrome im Hintergrund (Standard) oder aus DOCX via LibreOffice
 
 ---
 
@@ -272,9 +272,34 @@ new Table({
 
 ## PDF-Erstellung
 
+**Standardweg: HTML → PDF mit dem Browser im Hintergrund.** Braucht nichts außer Edge oder
+Chrome, Edge ist auf jedem Windows-Rechner vorhanden. Logo, Schrift und Farben bleiben
+erhalten (gegengeprüft am 16.10.2026 mit `templates/arbeitsblatt.html`).
+
 ```bash
-python3 scripts/office/soffice.py --headless --convert-to pdf dokument.docx --outdir ./
+# Windows (Edge)
+"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" --headless --disable-gpu --no-pdf-header-footer --print-to-pdf="C:\Pfad\dokument.pdf" "file:///C:/Pfad/dokument.html"
+
+# macOS (Chrome)
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --no-pdf-header-footer --print-to-pdf="$PWD/dokument.pdf" "file://$PWD/dokument.html"
 ```
+
+- Die HTML-Datei muss `templates/style.css` und das Logo per relativem Pfad finden,
+  sonst fehlt das Design. Im Zweifel die HTML-Datei im Ordner `templates/` erzeugen
+  oder CSS und Logo einbetten.
+- `--print-to-pdf` braucht einen **absoluten** Pfad.
+- Erfolg prüfen: Die Ausgabe meldet `… bytes written to file …`. Die Fehlerzeile
+  `fallback_task_provider` ist harmlos.
+
+**Alternative: DOCX → PDF mit LibreOffice**, nur wenn LibreOffice installiert ist:
+
+```bash
+soffice --headless --convert-to pdf dokument.docx --outdir ./
+# Windows: "C:\Program Files\LibreOffice\program\soffice.exe" statt soffice
+```
+
+**Infobrief aus Markdown:** `python scripts/format_infobrief.py brief.md --output pdf`
+(braucht `pip install weasyprint`).
 
 ---
 

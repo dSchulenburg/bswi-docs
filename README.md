@@ -1,6 +1,32 @@
-# BS:WI Infobrief Formatter
+# BS:WI Dokument-Generator
 
-Ein Claude Code Skill zur professionellen Formatierung von Markdown-Infobriefenim Corporate Design der Beruflichen Schule für Wirtschaft und Internationales Hamburg (BS:WI).
+Ein Agent-Skill für Arbeitsblätter, Infobriefe, Handouts, Formulare und E-Mails im Corporate Design der Beruflichen Schule für Wirtschaft und Internationales Hamburg (BS:WI). Funktioniert mit **Claude Code** und **OpenAI Codex** (beide lesen das offene `SKILL.md`-Format).
+
+## Installation
+
+Voraussetzung: `git` und Node.js (`node`, `npm`).
+
+### Claude Code
+
+```bash
+git clone https://github.com/dSchulenburg/bswi-docs ~/.claude/skills/bswi-docs
+cd ~/.claude/skills/bswi-docs && npm install
+```
+
+Claude Code neu starten. Dann einfach sagen: „Mach mir ein Arbeitsblatt im BS:WI-Design zu …“
+
+### OpenAI Codex
+
+```bash
+git clone https://github.com/dSchulenburg/bswi-docs ~/.agents/skills/bswi-docs
+cd ~/.agents/skills/bswi-docs && npm install
+```
+
+Codex neu starten. Aufruf mit `$bswi-docs` oder einfach in Worten wie oben.
+
+Windows: `~` ist `C:\Users\<name>`. Aktualisieren später mit `git pull` im Skill-Ordner.
+
+PDF entsteht standardmäßig aus HTML über Edge/Chrome im Hintergrund, ohne Zusatzinstallation (siehe `SKILL.md`, Abschnitt PDF-Erstellung).
 
 ## Features
 
@@ -172,7 +198,7 @@ Der Skill wird automatisch erkannt und verwendet.
 ## Dateistruktur
 
 ```
-~/.claude/skills/bswi-infobrief/
+~/.claude/skills/bswi-docs/
 ├── SKILL.md                    # Skill-Definition
 ├── README.md                   # Diese Datei
 ├── REFERENCE.md                # Vollständige API-Dokumentation
